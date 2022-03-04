@@ -93,12 +93,21 @@ http.post("/registerdb", (req,res)=>{
             })
             db_con.connect((err)=>{
                 if (err) throw err;
-                let my_query = "INSERT INTO users_data (first_name,last_name,email,dob,gender,password) VALUES ('"+fname+"','"+lname+"','"+email+"','"+dob+"','"+gender+"','"+password+"')";
-                db_con.query(my_query, (err,result)=>{
-                    if(err) throw err;
-                    req.flash('message', 'Registered Succesfully');
-                    res.redirect("/login");
-                    return res.end();
+                let query_check = "SELECT * FROM users_data WHERE email='" +email+ "'";
+                db_con.query(query_check,(err,results, fields)=>{
+                    let data = results;
+                    console.log(data);
+                    if(data.length >= 1){
+                        res.send("This user has already been registeres, please log in");
+                    }else{
+                        let my_query = "INSERT INTO users_data (first_name,last_name,email,dob,gender,password) VALUES ('"+fname+"','"+lname+"','"+email+"','"+dob+"','"+gender+"','"+password+"')";
+                        db_con.query(my_query, (err,result)=>{
+                        if(err) throw err;
+                        req.flash('message', 'Registered Succesfully');
+                        res.redirect("/login");
+                        return res.end();
+                        })
+                    }
                 })
             })
 

@@ -1,6 +1,18 @@
+body{margin: 0; 
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("./img/picture.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 form{
     width: 50%;
     margin: auto;
+    color: white;
+}
+label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
 }
 input, select{
     width: 100%;
@@ -16,6 +28,9 @@ button{
     color: white;
     cursor: pointer;
 }
+button:hover{
+    background-color: rgb(30, 30, 197);
+}
 span{
     color: red;
     width: 100%;
@@ -24,6 +39,7 @@ span{
 ul{
     background-color: black;
     padding: 20px 16px;
+    margin: 0 0 2%;
 }
 li{
     text-decoration: none;
@@ -31,7 +47,7 @@ li{
     display: inline;
     padding: 20px 16px;
 }
-a{color: white; text-decoration: none;padding: 20px 16px;}
+a{color: white; text-decoration: none;padding: 20px 16px; font-size: 20px;}
 a:hover{
-    background-color: blue;
+    color: rgb(90, 90, 168);
 }

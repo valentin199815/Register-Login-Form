@@ -5,6 +5,7 @@ const Register = () =>{
     const [email, setEmail] = useState("");
     const pass1 = useRef();
     const pass2 = useRef();
+    const button = useRef();
     const [mypass, setpass] = useState("");
     const[text1,setText1] = useState("");
     const[text2,setText2] = useState("");
@@ -16,6 +17,7 @@ const Register = () =>{
     const blurfname = () =>{
         if(fname == ""){
             setText1("This field is mandatory");
+            
         }else{
             setText1("");
         }
@@ -79,7 +81,7 @@ const Register = () =>{
                 <label>Repeat Password</label>
                 <span>{passwordmatch}</span>
                 <input type="password" onBlur={checkpassrepeat} ref={pass2} name="pass2" placeholder="Confirm password"/>
-                <button type="submit">Register</button>
+                <button type="submit" disabled={true} ref={button}>Register</button>
             </form>
         </>
     )
